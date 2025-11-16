@@ -1,4 +1,4 @@
-# AdaptAid — End-to-end Setup (Frontend + Backend)
+# AdaptAid
 
 This repository contains the AdaptAid web project with a backend (Express + MongoDB) and a frontend (static HTML/CSS/JS). This README explains, step-by-step, how to run the project locally, how the end-to-end flow works, and how to verify data is saved to MongoDB.
 
