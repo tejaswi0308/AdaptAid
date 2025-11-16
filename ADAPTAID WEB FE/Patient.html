@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AdaptAid |Patient Login</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+  <a href="Home.html">&larr; Home</a>
+  <div class="title">Patient Login</div>
+
+  <div class="form-container">
+    <div class="form-left">
+      <div class="toggle">
+        <label><input type="radio" name="mode" checked> LOGIN</label>
+        <label><input type="radio" name="mode"> SIGN UP</label>
+      </div>
+      <form id="patientForm">
+        <div class="input-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Name" required>
+        </div>
+
+        <div class="input-group">
+          <label for="email">Email*</label>
+          <input type="email" id="email" name="email" placeholder="Email" required>
+        </div>
+
+        <div class="input-group">
+          <label for="phone">Phone no.*</label>
+          <input type="tel" id="phone" name="phone" placeholder="Phone no." required>
+        </div>
+
+        <button class="btn" type="submit">SUBMIT</button>
+      </form>
+    </div>
+
+    <div class="form-right">
+      <div class="star"></div>
+      <div class="star green"></div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('patientForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+
+      const payload = { name, email, phone };
+
+      try {
+        const res = await fetch('http://localhost:3000/patients', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+          // Some responses (e.g. 405 HTML pages) aren't JSON — parse safely
+          let data = null;
+          try {
+            data = await res.json();
+          } catch (err) {
+            // response wasn't JSON — keep data as null
+          }
+          if (res.ok) {
+            alert('Patient saved: ' + (data?.message || 'OK'));
+          } else {
+            alert('Error: ' + (data?.error || res.status + ' ' + res.statusText));
+          }
+      } catch (err) {
+        console.error(err);
+        alert('Request failed. See console.');
+      }
+    });
+  </script>
+
+</body>
+</html>

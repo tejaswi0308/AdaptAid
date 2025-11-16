@@ -1,0 +1,226 @@
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #333;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url(https://www.science.org/do/10.1126/science.adk0170/abs/_20230728_on_prosthetic.jpg) no-repeat center/cover;
+  opacity: 0.4; /* slightly softer than before */
+  z-index: -1;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+}
+
+header a {
+  font-size: 24px;
+  font-weight: bold;
+  color: #191923;
+  text-decoration: none;
+}
+
+header p {
+  font-size: 14px;
+  color: black;
+}
+
+/* Main Section */
+.main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px;
+  gap: 40px;
+}
+
+.main-text {
+  max-width: 45%;
+}
+
+.main-text h2 {
+  background: #191923;
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 28px;
+  line-height: 1.3;
+}
+
+.main-text p {
+  margin: 20px 0;
+  color: #444;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.buttons a {
+  display: inline-block;
+  padding: 12px 20px;
+  text-align: center;
+  background: #191923;
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background 0.3s;
+}
+
+.buttons a:hover {
+  background: #333;
+}
+
+.main img {
+  max-width: 45%;
+  border-radius: 15px;
+}
+
+/* Services Section */
+.services {
+  padding: 40px;
+}
+
+.services h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 25px;
+  background: #ccffcc;
+  display: inline-block;
+  padding: 8px 15px;
+  border-radius: 6px;
+}
+
+/* Explore More Section */
+.explore-more {
+  padding: 40px;
+}
+
+.explore-more h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 25px;
+  background: #ccffcc;
+  display: inline-block;
+  padding: 8px 15px;
+  border-radius: 6px;
+}
+
+/* Unified card styling for both Services & Explore More */
+.service-grid,
+.explore-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.service-card,
+.explore-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border-radius: 15px;
+  padding: 25px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  background: rgba(255, 255, 255, 0.9); /* glassy white */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: transform 0.3s, box-shadow 0.3s;
+  color: #000;
+  min-height: 200px; /* consistent card size */
+}
+
+.service-card:hover,
+.explore-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+}
+
+.service-card i,
+.explore-card i {
+  font-size: 32px;
+  color: #191923;
+}
+
+.explore-card a {
+  text-decoration: none;
+  color: black;
+}
+
+.explore-card a:hover {
+  color: #191923;
+}
+
+/* Why Choose Us */
+.why-us {
+  padding: 40px;
+  text-align: center;
+}
+
+.why-us h2 {
+  font-size: 20px;
+  font-weight: bold;
+  background: #ccffcc;
+  display: inline-block;
+  padding: 8px 15px;
+  border-radius: 6px;
+}
+
+.why-us img {
+  max-width: 400px;
+  width: 100%;
+  border-radius: 10px;
+  margin: 30px auto;
+  display: block;
+}
+
+/* Footer Features */
+.features {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 40px;
+  background: #191923;
+  color: #fff;
+  flex-wrap: wrap;
+}
+
+.feature {
+  flex: 1;
+  min-width: 250px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .main {
+    flex-direction: column;
+    text-align: center;
+  }
+  .main-text, .main img {
+    max-width: 100%;
+  }
+  .service-grid,
+  .explore-grid {
+    grid-template-columns: 1fr;
+  }
+  .features {
+    flex-direction: column;
+  }
+}

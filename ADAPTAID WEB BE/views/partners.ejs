@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Our Partners</title>
+</head>
+<body>
+
+<h2>Our Partners</h2>
+
+<select id="typeFilter">
+  <option value="all">All</option>
+  <option value="NGO">NGO</option>
+  <option value="Hospital">Hospital</option>
+  <option value="Manufacturer">Manufacturer</option>
+</select>
+
+<div id="partnerGrid"></div>
+
+<script>
+async function loadPartners() {
+  let data = await fetch("/partners/api").then(r => r.json());
+  render(data);
+
+  document.getElementById("typeFilter").addEventListener("change", e => {
+    let type = e.target.value;
+    if (type === "all") return render(data);
+    render(data.filter(p => p.type === type));
+  });
+}
+
+function render(list) {
+  const grid = document.getElementById("partnerGrid");
+  grid.innerHTML = "";
+  list.forEach(p => {
+    grid.innerHTML += `
+      <div style="border:1px solid #ccc;padding:10px;margin:10px;">
+        <h3>${p.name}</h3>
+        <p>${p.type} — ${p.location}</p>
+      </div>`;
+  });
+}
+
+loadPartners();
+</script>
+
+</body>
+</html>
