@@ -1,5 +1,19 @@
 # AdaptAid
 
+What is AdaptAid?
+
+AdaptAid is a full-stack web application built to demonstrate practical implementation of frontend–backend integration using modern web technologies.
+
+The application enables users to submit patient information through a web interface, which is then processed by an Express-based backend, validated for correctness and duplication, and securely stored in a MongoDB database. The project follows a modular structure with clearly defined routes, models, and frontend assets, reflecting real-world web application architecture.
+
+AdaptAid includes multiple backend routes for patient registration, user login, and partner interactions, showcasing RESTful API design, server-side validation, and database persistence using Mongoose. The frontend is implemented using static HTML, CSS, and JavaScript, focusing on form handling and HTTP communication with the backend.
+
+This project was developed as a learning-focused full-stack implementation, emphasizing clarity of data flow, maintainable code structure, and hands-on understanding of how client-side and server-side components interact in a web application.
+
+The application allows users to submit patient information via a frontend form, which is then processed, validated, and stored in MongoDB through Express routes. It also includes basic login and partner-related routes to demonstrate multi-route backend architecture.
+
+This project was built as a learning-oriented full-stack implementation, emphasizing clarity, modular structure, and practical understanding of how frontend and backend systems interact in a real application.
+
 This repository contains the AdaptAid web project with a backend (Express + MongoDB) and a frontend (static HTML/CSS/JS). This README explains, step-by-step, how to run the project locally, how the end-to-end flow works, and how to verify data is saved to MongoDB.
 
 ## Repo layout (important files)
